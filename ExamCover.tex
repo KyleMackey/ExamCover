@@ -1,0 +1,50 @@
+%%
+%%	Cover sheet for assessments with random number generator
+%%
+
+\documentclass[16pt]{article}
+
+\usepackage[first=1, last=1000]{lcg} 			% Generates random numbers between 1 and 1 000
+\newcommand{\StudentID}{\rand\arabic{rand}}
+
+%%
+%%	Syntax from following four lines taken from this post: 
+%%		http://tex.stackexchange.com/questions/16189/repeat-command-n-times
+%%
+\usepackage{expl3}
+\ExplSyntaxOn
+\cs_new_eq:NN \Repeat \prg_replicate:nn
+\ExplSyntaxOff
+
+\begin{document}
+
+%%
+%%	No numbers on pages 
+%%
+\pagestyle{empty}
+
+%%
+%%	This is the cover sheet material that each student receives on
+%%	the day of the test. The student takes the random ID from this cover
+%%	sheet and writes it on their assessment packet. No student name is 
+%%	placed on the assessment packet, it is only placed on this cover sheet.
+%%
+%%	Note: This uses the \Repeat command to create N cover sheets, 
+%%	where N=number of students taking the assessment.
+%%
+\Repeat{4}{		% Replace the value in the \Repeat command with the 
+				% number of students taking the assessment
+	\command{	% \command is repeated N times 
+		\noindent
+		{\bf Course:} [Course Name] \bigskip 					\\
+		{\bf Assessment:} [Assessment Name] \bigskip\bigskip\bigskip 	\\
+		{\bf Name:} \hrulefill \bigskip 							\\
+		{\bf Student ID:} \StudentID \bigskip 						\\
+		%{\bf TA:} \hrulefill \bigskip 							\\
+		{\bf Date:} \hrulefill									\\
+
+		\clearpage\pagebreak
+	}
+}
+
+\end{document}
