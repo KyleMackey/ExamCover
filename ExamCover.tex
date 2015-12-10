@@ -4,7 +4,7 @@
 
 \documentclass[16pt]{article}
 
-\usepackage[first=1, last=1000]{lcg} 			% Generates random numbers between 1 and 1 000
+\usepackage[first=1, last=10000]{lcg} 			% Generates random numbers between 1 and 10 000
 \newcommand{\StudentID}{\rand\arabic{rand}}
 
 %%
@@ -35,14 +35,25 @@
 \Repeat{4}{		% Replace the value in the \Repeat command with the 
 				% number of students taking the assessment
 	\command{	% \command is repeated N times 
+		\LARGE
 		\noindent
 		{\bf Course:} [Course Name] \bigskip 					\\
 		{\bf Assessment:} [Assessment Name] \bigskip\bigskip\bigskip 	\\
 		{\bf Name:} \hrulefill \bigskip 							\\
-		{\bf Student ID:} \StudentID \bigskip 						\\
+		{\bf Test ID:} \StudentID \bigskip 						\\
 		%{\bf TA:} \hrulefill \bigskip 							\\
 		{\bf Date:} \hrulefill									\\
 
+		\vspace{2.0in}
+		
+		\noindent
+		{\bf Course:} [Course Name] \bigskip 					\\
+		{\bf Assessment:} [Assessment Name] \bigskip\bigskip\bigskip 	\\
+		{\bf Name:} \hrulefill \bigskip 							\\
+		{\bf Test ID:} \StudentID \bigskip 						\\
+		%{\bf TA:} \hrulefill \bigskip 							\\
+		{\bf Date:} \hrulefill									\\
+		
 		\clearpage\pagebreak
 	}
 }
